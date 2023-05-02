@@ -18,7 +18,7 @@ bot = Client(
     parse_mode=enums.ParseMode.HTML,
 ).start()
 
-# server = Popen(f"gunicorn web.app:app --bind 0.0.0.0:8000", shell=True)
+server = Popen(f"gunicorn web.app:app --bind 0.0.0.0:8000", shell=True)
 
 
 files = glob.glob(join(join(dirname(__file__), 'Plugins'), '*py'))
