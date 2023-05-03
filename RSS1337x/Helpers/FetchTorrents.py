@@ -9,7 +9,7 @@ def fetch_torrents(user):
         torrents = []
         for torrent in torrents_title:
             try:
-                torrent_link = 'https://1337x.unblockit.click' + \
+                torrent_link = 'https://1337xx.to' + \
                     torrent.findChildren()[2]["href"]
             except:
                 continue
