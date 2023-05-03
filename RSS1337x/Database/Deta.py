@@ -8,7 +8,7 @@ TORRENT_USERS = deta.Base("TORRENT_USERS")
 
 
 def get_id_by_link(link):
-    regex = r'https://1337x.to\/.*?\/(\d+)\/.*?'
+    regex = r'https://1337x.unblockit.click\/.*?\/(\d+)\/.*?'
     if torrent_id := re.search(regex, link):
         return str(torrent_id[1])
     else:
