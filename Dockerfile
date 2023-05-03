@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt update && apt upgrade -y
-RUN DEBIAN_FRONTEND="noninteractive" apt install git python3 python3-pip -y 
+RUN DEBIAN_FRONTEND="noninteractive" apt install git tzdata python3 python3-pip -y 
 RUN pip3 install -U pip
 
 RUN mkdir /app/
