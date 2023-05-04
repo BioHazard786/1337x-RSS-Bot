@@ -16,13 +16,14 @@ OWNER_ID = 798171690
 RSS_MESSAGE = '''
 <b>{title}</b>
 
-<b>‣ Category : <u><i>{category}</i></u></b>
-<b>‣ Type : <u><i>{type}</i></u></b>
-<b>‣ Language : <u><i>{language}</i></u></b>
-<b>‣ Size : <u><i>{size}</i></u></b>
-<b>‣ Uploaded By : <u><i>{uploader}</i></u></b>
+<b>‣ Category : <code>{category}</code></b>
+<b>‣ Type : <code>{type}</code></b>
+<b>‣ Language : <code>{language}</code></b>
+<b>‣ Size : <code>{size}</code></b>
+<b>‣ Uploaded By : <code>{uploader}</code></b>
 
-🔗 <b>{magnet_link} | {torrent_link} | {view_link}</b>
+<b>🧲 Magnet :</b>
+<code>{magnet_link}</code>
 '''
 
 

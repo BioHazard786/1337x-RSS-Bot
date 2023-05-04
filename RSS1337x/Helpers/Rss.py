@@ -40,9 +40,7 @@ async def upload_torrents():
                         language=torrent_info['Language'],
                         size=torrent_info['Total size'],
                         uploader=torrent_info['Uploaded By'],
-                        torrent_link=f'<a href="{torrent_info["torrent_link"]}">Torrent</a>',
-                        view_link=f'<a href="{link}">View</a>',
-                        magnet_link=f'<a href="https://t.me/Rss_1337x_bot?start={post.id}">Magnet</a>'
+                        magnet_link=torrent_info['magnet_link']
                     ),
                         disable_web_page_preview=True
                     )

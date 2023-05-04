@@ -7,12 +7,12 @@ def fetch_torrent_info(link):
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
         try:
-            torrent_link = soup.select_one(
-                'ul.dropdown-menu').select_one('li').select_one('a')['href']
+            magnet_link = soup.select_one(
+                'ul.dropdown-menu').select('li')[-1].select_one('a')['href']
         except:
-            torrent_link = link
+            magnet_link = link
 
-        t_info['torrent_link'] = torrent_link
+        t_info['magnet_link'] = magnet_link
         title = soup.find('title').text[9:-16]
         t_info['title'] = title
         torrent_meta_info = soup.select('ul.list')[1].select('li')
