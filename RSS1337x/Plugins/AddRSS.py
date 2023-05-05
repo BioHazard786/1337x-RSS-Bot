@@ -52,8 +52,11 @@ async def check(_, message):
 
 
 def get_user_by_link(link):
-    regex = r'https://1337xx.to\/(.*)\/'
+    regex = r'https://1337xx.to/user\/(.*)\/'
+    regex_2 = r'https://www.1337xx.to/user\/(.*)\/'
     if torrent_user := re.search(regex, link):
+        return str(torrent_user[1])
+    elif torrent_user := re.search(regex_2, link):
         return str(torrent_user[1])
     else:
         return None
