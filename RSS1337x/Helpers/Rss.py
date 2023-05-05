@@ -30,20 +30,25 @@ async def upload_torrents():
             if await loop.run_in_executor(executor, lambda: check(link)):
                 torrent_info = await loop.run_in_executor(executor, lambda: fetch_torrent_info(link))
                 if torrent_info:
-                    post = await bot.send_message(chat_id=CHANNEL,
-                                                  text='<code>Sending...</code>'
-                                                  )
-                    await post.edit_text(text=RSS_MESSAGE.format(
-                        title=torrent_info['title'],
-                        category=torrent_info['Category'],
-                        type=torrent_info['Type'],
-                        language=torrent_info['Language'],
-                        size=torrent_info['Total size'],
-                        uploader=torrent_info['Uploaded By'],
-                        magnet_link=torrent_info['magnet_link']
-                    ),
-                        disable_web_page_preview=True
-                    )
+                    try:
+                        post = await bot.send_message(chat_id=CHANNEL,
+                                                      text='<code>Sending...</code>'
+                                                      )
+                        await post.edit_text(text=RSS_MESSAGE.format(
+                            title=torrent_info['title'],
+                            category=torrent_info['Category'],
+                            type=torrent_info['Type'],
+                            language=torrent_info['Language'],
+                            size=torrent_info['Total size'],
+                            uploader=torrent_info['Uploaded By'],
+                            magnet_link=torrent_info['magnet_link']
+                        ),
+                            disable_web_page_preview=True
+                        )
+                    except FloodWait as e:
+                        await asyncio.sleep(e.value)
+                    except:
+                        continue
                     await loop.run_in_executor(executor, lambda: save(link, str(post.id)))
                 await asyncio.sleep(3)
 
