@@ -24,11 +24,11 @@ async def remove(_, message):
     if message.from_user.id != OWNER_ID:
         return await message.reply_text("<code>Only for owner use</code>")
 
-    args = message.text.split(" ", 1).strip()
+    args = message.text.split(" ", 1)
     if len(args) <= 1:
         return await message.reply(f"<b>Not applicable</b>")
 
-    torrent_user = get_user_by_link(args[-1])
+    torrent_user = get_user_by_link(args[-1].strip())
     if not torrent_user:
         return await message.reply(f"<b>Invalid link format</b>")
 
