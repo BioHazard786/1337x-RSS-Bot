@@ -12,6 +12,7 @@ API_ID = int(getenv("API_ID"))
 API_HASH = getenv("API_HASH")
 CHANNEL = -1001922471186
 DETA = getenv("DETA")
+MONDODB = getenv("MONDODB")
 OWNER_ID = 798171690
 RSS_MESSAGE = '''
 <b>{title}</b>

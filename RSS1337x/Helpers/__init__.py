@@ -10,5 +10,5 @@ import json
 import asyncio
 import requests
 from bs4 import BeautifulSoup
-from ..Database.Deta import *
+from ..Database.MongoDB import *
 executor = ThreadPoolExecutor(10)

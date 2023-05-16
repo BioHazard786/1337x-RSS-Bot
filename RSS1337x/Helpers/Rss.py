@@ -27,7 +27,7 @@ async def upload_torrents():
         except:
             continue
         for link in reversed(torrent_links):
-            if await loop.run_in_executor(executor, lambda: check(link)):
+            if await check(link):
                 torrent_info = await loop.run_in_executor(executor, lambda: fetch_torrent_info(link))
                 if torrent_info:
                     try:
@@ -47,7 +47,7 @@ async def upload_torrents():
                         await asyncio.sleep(e.value)
                     except:
                         continue
-                    await loop.run_in_executor(executor, lambda: save(link, str(post.id)))
+                    await save(link, str(post.id))
                 await asyncio.sleep(3)
 
 save_post = AsyncIOScheduler()
