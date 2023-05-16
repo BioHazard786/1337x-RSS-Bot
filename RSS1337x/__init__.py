@@ -10,6 +10,8 @@ __all__ = ['bot', 'loop']
 
 loop = asyncio.get_event_loop()
 
+server = Popen(f"gunicorn web.app:app --bind 0.0.0.0:8000", shell=True)
+
 bot = Client(
     "1337xRSS",
     api_id=API_ID,
@@ -17,9 +19,6 @@ bot = Client(
     bot_token=BOT_TOKEN,
     parse_mode=enums.ParseMode.HTML,
 ).start()
-
-server = Popen(f"gunicorn web.app:app --bind 0.0.0.0:8000", shell=True)
-
 
 files = glob.glob(join(join(dirname(__file__), 'Plugins'), '*py'))
 plugins = [basename(f)[:-3] for f in files if isfile(f)
